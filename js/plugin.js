@@ -1,7 +1,6 @@
 const canvas = document.getElementById('pixel_canvas'),
   createButton = document.getElementById('submit');
-let color = document.getElementById('color').value,
-  buttons = document.getElementsByTagName('button');
+let buttons = document.getElementsByTagName('button');
 
 // making grid function
 makeGrid = () =>{
@@ -17,14 +16,14 @@ makeGrid = () =>{
   }
 }
 
-// handling clicking on buttons
+// prevent submitting while clicking on buttons
 Array.from(buttons).forEach(button=> {
   button.addEventListener('click', event=>{
     event.preventDefault()
   })
 });
 
-// empty frid handler
+// empty element handler
 emptyCanvas = () =>{
   while (canvas.firstChild) {
     canvas.removeChild(canvas.firstChild);
@@ -34,11 +33,22 @@ emptyCanvas = () =>{
 // create grid handler
 createButton.addEventListener('click', (event)=>{
   event.preventDefault();
-  deleteCanvas()
+  emptyCanvas()
   makeGrid()
 });
 
+draw=()=>{
+  let cells = document.querySelectorAll('td');
+    Array.from(cells).map(function (cell){
+      cell.addEventListener('click', function(){
+        let color = document.getElementById('color').value;
+        this.style.backgroundColor = color;
+      })
+    })
+}
+
 makeGrid();
+draw()
 // $(document).ready(function() {
 //   const canvas = $("#pixel_canvas");
 //   makeGride();
