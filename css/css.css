@@ -21,47 +21,121 @@ h2 {
 /* End Normalize Setting */
 
 /* Start form */
+/* Form styling */
 form {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  margin: 20px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  width: 50vw;
 }
-.form-group {
+/* customizing number input */
+
+.form-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.form-group label{
+  font-size: 25px;
+  margin-right: 20px;
+}
+
+/* input style */
+.form-group input[type=number] {
+  font-family: sans-serif;
+  max-width: 5rem;
+  padding: .5rem;
+  border: 1px solid #ddd;
+  font-size: 2rem;
+  height: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* controller style */
+
+
+.form-group .controller.minus{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.form-group .controller.plus{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* input buttons signs*/
+.form-group .controller:before,
+.form-group .controller:after {
   display: inline-block;
+  position: absolute;
+  content: '';
+  width: 1rem;
+  height: 2px;
+  background-color: #212121;
+  transform: translate(-50%, -50%);
+}
+
+.form-group .controller.plus:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.controller {
+  position: relative;
+  min-width: max-content;
+  width: 3rem;
+  max-width: 5rem;
+  height: 3rem;
+  margin: 0;
+  padding: 1rem;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  outline:none;
+  cursor: pointer;
+}
+/* Form submition style */
+.create,
+.clear {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+}
+
+.clear{
+  background-color: #ff6768;
+}
+
+.create::after,
+.create::before,
+.clear::after,
+.clear::before{
+  content: none !important;
 }
 
 label,
 input {
-  margin: 10px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-label {
-  font-size: 25px;
-}
-
-input {
-  width: 50px;
-  height: 30px;
-  font-size: 15px;
-}
-
-input,
-button {
-  width: 55px;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-}
 /* End form */
 
 /* Start table */
 table {
-  margin: auto;
+  margin: 50px auto;
   border-collapse: collapse;
 }
 tr {
@@ -73,7 +147,7 @@ td {
 table,
 tr,
 td {
-  border: 1px solid #000;
+  border: 1px dashed #000;
 }
 
 input[type = "button"] {
