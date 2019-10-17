@@ -1,5 +1,6 @@
 const canvas = document.getElementById('pixel_canvas'),
-  createButton = document.getElementById('submit');
+  createButton = document.getElementById('submit'),
+  clearButton = document.getElementById('reset');
 let buttons = document.getElementsByTagName('button');
 
 // making grid function
@@ -14,7 +15,7 @@ makeGrid = () =>{
       row.appendChild(cell);
     }
   }
-}
+};
 
 // prevent submitting while clicking on buttons
 Array.from(buttons).forEach(button=> {
@@ -28,13 +29,20 @@ emptyCanvas = () =>{
   while (canvas.firstChild) {
     canvas.removeChild(canvas.firstChild);
   }
-}
+};
 
 // create grid handler
 createButton.addEventListener('click', (event)=>{
   event.preventDefault();
-  emptyCanvas()
-  makeGrid()
+  emptyCanvas();
+  makeGrid();
+});
+
+clearButton.addEventListener('click',_=>{
+  let cells = document.getElementsByTagName('td');
+  Array.from(cells).map(cell=> {
+    cell.style.backgroundColor = '';
+  });
 });
 
 // draw "coloring cells"
@@ -53,7 +61,7 @@ draw = () =>{
       }
     })
   });
-}
+};
 
 makeGrid();
 draw();
