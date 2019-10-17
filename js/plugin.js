@@ -1,19 +1,42 @@
-const canvas = document.getElementById('pixel_canvas');
-let gridWidth = document.getElementById('gridWidth').value,
-  gridHeight = document.getElementById('gridHeight').value,
-  color = document.getElementById('color').value;
+const canvas = document.getElementById('pixel_canvas'),
+  createButton = document.getElementById('submit');
+let color = document.getElementById('color').value,
+  buttons = document.getElementsByTagName('button');
 
-
+// making grid function
 makeGrid = () =>{
+  let gridWidth = document.getElementById('gridWidth').value,
+  gridHeight = document.getElementById('gridHeight').value;
   for (let row = 0; row < gridHeight; row++) {
-    const rows = document.createElement('tr');
-    canvas.appendChild(rows)
+    const row = document.createElement('tr');
+    canvas.appendChild(row)
     for (let col = 0; col < gridWidth; col++) {
       const cell = document.createElement('td')
-      rows.appendChild(cell);
+      row.appendChild(cell);
     }
   }
 }
+
+// handling clicking on buttons
+Array.from(buttons).forEach(button=> {
+  button.addEventListener('click', event=>{
+    event.preventDefault()
+  })
+});
+
+// empty frid handler
+emptyCanvas = () =>{
+  while (canvas.firstChild) {
+    canvas.removeChild(canvas.firstChild);
+  }
+}
+
+// create grid handler
+createButton.addEventListener('click', (event)=>{
+  event.preventDefault();
+  deleteCanvas()
+  makeGrid()
+});
 
 makeGrid();
 // $(document).ready(function() {

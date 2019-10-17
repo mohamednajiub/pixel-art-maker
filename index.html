@@ -18,17 +18,17 @@
     <div class="form-group">
       <label for="gridHeight">Grid Height:</label>
       <button class="controller minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-      <input class="gridHeight" id="gridHeight" min="1" max="200" step="5" name="gridWidth" value="15" type="number" >
+      <input type="number" id="gridHeight" min="1" max="200" step="5" name="gridWidth" value="15">
       <button class="controller plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
     </div>
     <div class="form-group">
       <label for="gridWidth">Grid Width:</label>
       <button class="controller minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-      <input class="gridWidth" id="gridWidth" min="1" max="200" step="5" name="gridWidth" value="15" type="number" >
+      <input type="number" id="gridWidth" min="1" max="200" step="5" name="gridWidth" value="15">
       <button class="controller plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
     </div>
     <div class="form-group">
-      <button class="submit" type="submit" name="submit">Create</button>
+      <button class="submit" id="submit" type="submit" name="submit">Create</button>
     </div>
   </form>
 
