@@ -28,15 +28,6 @@ input {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-label {
-  font-size: 25px;
-}
-
-button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-}
 /* End form */
 
 /* Start table */
@@ -90,6 +81,7 @@ form {
 }
 
 .form-group label{
+  font-size: 25px;
   margin-right: 20px;
 }
 
@@ -147,4 +139,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 .form-group .controller.plus:after {
   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Form submition style */
+.submit {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
 }
