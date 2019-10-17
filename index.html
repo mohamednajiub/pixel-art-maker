@@ -28,7 +28,8 @@
       <button class="controller plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
     </div>
     <div class="form-group">
-      <button class="submit" id="submit" type="submit" name="submit">Create</button>
+      <button class="controller create" id="submit" type="submit">Create</button>
+      <button class="controller clear" id="reset" type="button">Clear Canvas </button>
     </div>
   </form>
 
@@ -37,8 +38,6 @@
 
   <table id="pixel_canvas">
   </table>
-
-  <button type="button" class="controller" id="reset">Clear Canvas </button>
   <script src="js/plugin.js"></script>
 </body>
 </html>

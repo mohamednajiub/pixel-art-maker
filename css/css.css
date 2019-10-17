@@ -21,47 +21,6 @@ h2 {
 /* End Normalize Setting */
 
 /* Start form */
-
-
-label,
-input {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-
-/* End form */
-
-/* Start table */
-table {
-  margin: auto;
-  border-collapse: collapse;
-}
-tr {
-  height: 20px;
-}
-td {
-  width: 20px;
-}
-table,
-tr,
-td {
-  border: 1px dashed #000;
-}
-
-input[type = "button"] {
-  width: 100px;
-}
-
-/* End Table */
-
-/****************** Start Media Query ******************/
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575px) {
-  .form-group {
-    display: block;
-  }
-}
-
 /* Form styling */
 form {
   display: flex;
@@ -103,17 +62,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* controller style */
-.form-group .controller {
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-  margin: 0;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 1px solid #ddd;
-  outline:none;
-  cursor: pointer;
-}
+
 
 .form-group .controller.minus{
   border-top-left-radius: 5px;
@@ -141,13 +90,77 @@ input[type=number]::-webkit-outer-spin-button {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
+.controller {
+  position: relative;
+  min-width: max-content;
+  width: 3rem;
+  max-width: 5rem;
+  height: 3rem;
+  margin: 0;
+  padding: 1rem;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  outline:none;
+  cursor: pointer;
+}
 /* Form submition style */
-.submit {
+.create,
+.clear {
   background-color: #3498db;
   color: #fff;
   border: none;
-  padding: 15px 20px;
   font-size: 20px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-transform: uppercase;
+}
+
+.clear{
+  background-color: #ff6768;
+}
+
+.create::after,
+.create::before,
+.clear::after,
+.clear::before{
+  content: none !important;
+}
+
+label,
+input {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+/* End form */
+
+/* Start table */
+table {
+  margin: 50px auto;
+  border-collapse: collapse;
+}
+tr {
+  height: 20px;
+}
+td {
+  width: 20px;
+}
+table,
+tr,
+td {
+  border: 1px dashed #000;
+}
+
+input[type = "button"] {
+  width: 100px;
+}
+
+/* End Table */
+
+/****************** Start Media Query ******************/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  .form-group {
+    display: block;
+  }
 }
