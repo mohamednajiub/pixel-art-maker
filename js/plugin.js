@@ -37,18 +37,27 @@ createButton.addEventListener('click', (event)=>{
   makeGrid()
 });
 
-draw=()=>{
-  let cells = document.querySelectorAll('td');
-    Array.from(cells).map(function (cell){
-      cell.addEventListener('click', function(){
-        let color = document.getElementById('color').value;
-        this.style.backgroundColor = color;
-      })
+// draw "coloring cells"
+draw = () =>{
+  let down = false;
+  canvas.addEventListener('mousedown', function(e) {
+    let color = document.getElementById('color').value;
+    down = true;
+    e.target.style.backgroundColor = color;
+    canvas.addEventListener('mouseup', _=>{
+      down = false;
     })
+    canvas.addEventListener('mousemove', (e)=>{
+      if (down && e.target.tagName === 'TD') {
+        e.target.style.backgroundColor = color;
+      }
+    })
+  });
 }
 
 makeGrid();
 draw()
+// draw()
 // $(document).ready(function() {
 //   const canvas = $("#pixel_canvas");
 //   makeGride();
