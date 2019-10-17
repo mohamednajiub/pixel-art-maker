@@ -160,7 +160,7 @@ input[type = "button"] {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575px) {
-  .form-group {
-    display: block;
+  form{
+    width: 90vw;
   }
 }
