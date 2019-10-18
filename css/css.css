@@ -54,6 +54,7 @@ form {
   height: 3rem;
   font-weight: bold;
   text-align: center;
+  -moz-appearance:textfield;
 }
 
 input[type=number]::-webkit-inner-spin-button,
