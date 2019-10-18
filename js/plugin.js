@@ -1,6 +1,8 @@
 const canvas = document.getElementById('pixel_canvas'),
   createButton = document.getElementById('submit'),
-  clearButton = document.getElementById('reset');
+  clearButton = document.getElementById('reset'),
+  plus = document.getElementsByClassName('plus'),
+  minus = document.getElementsByClassName('minus');
 let buttons = document.getElementsByTagName('button');
 
 // making grid function
@@ -23,6 +25,19 @@ Array.from(buttons).forEach(button=> {
     event.preventDefault()
   })
 });
+function subtract(event, modifier){
+  let oldValue = parseInt(event.target.parentNode.querySelector('input[type=number]').value);
+  if(oldValue > 0){
+    event.target.parentNode.querySelector('input[type=number]').value = oldValue - modifier;
+  }
+}
+
+function adding(event, modifier){
+  let oldValue = parseInt(event.target.parentNode.querySelector('input[type=number]').value);
+  if (oldValue < 100){
+    event.target.parentNode.querySelector('input[type=number]').value = oldValue + modifier
+  }
+}
 
 // empty element handler
 emptyCanvas = () =>{
