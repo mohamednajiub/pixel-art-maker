@@ -13,7 +13,7 @@
 <body>
   <h1>PIEXL ART MAker</h1>
   <h2>Choose Grid Size</h2>
-  <form class="toolbox" method="post">
+  <form method="post">
     <div class="form-group">
       <label for="gridHeight">Grid Height:</label>
       <button class="controller minus" onclick="subtract(event, 5)"></button>
@@ -32,8 +32,11 @@
     </div>
   </form>
 
-  <label for="color">Choose Color:</label>
-  <input type="color" name="color" id="color">
+  <div class="toolbox">
+    <label for="color">Choose Color:</label>
+    <input type="color" name="color" id="color">
+    <img src="./images/eraser.svg" alt="eraser icon" id="eraser" width="50px" height="50px" onclick="eraser()">
+  </div>
 
   <table id="pixel_canvas">
   </table>

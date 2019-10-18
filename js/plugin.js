@@ -2,8 +2,11 @@ const canvas = document.getElementById('pixel_canvas'),
   createButton = document.getElementById('submit'),
   clearButton = document.getElementById('reset'),
   plus = document.getElementsByClassName('plus'),
-  minus = document.getElementsByClassName('minus');
-let buttons = document.getElementsByTagName('button');
+  minus = document.getElementsByClassName('minus'),
+  eraser = document.getElementById('eraser'),
+  buttons = document.getElementsByTagName('button');
+
+let eraseMode = false;
 
 // making grid function
 makeGrid = () =>{
@@ -66,17 +69,35 @@ draw = () =>{
   canvas.addEventListener('mousedown', function(e) {
     let color = document.getElementById('color').value;
     down = true;
-    e.target.style.backgroundColor = color;
+    if(eraseMode === false){
+      e.target.style.backgroundColor = color;
+    }else{
+      e.target.style.backgroundColor = '';
+    }
     canvas.addEventListener('mouseup', _=>{
       down = false;
     })
     canvas.addEventListener('mousemove', (e)=>{
-      if (down && e.target.tagName === 'TD') {
+      if (down && e.target.tagName === 'TD' && eraseMode === false) {
         e.target.style.backgroundColor = color;
+      }
+    })
+    canvas.addEventListener('mousemove', (e)=>{
+      if (down && e.target.tagName === 'TD' && eraseMode === true) {
+        e.target.style.backgroundColor = '';
       }
     })
   });
 };
+
+eraser.addEventListener('click', _=>{
+  eraseMode = !eraseMode;
+  if(eraseMode){
+    eraser.style.border = '1px solid #ccc'
+  }else {
+    eraser.style.border = ''
+  }
+})
 
 makeGrid();
 draw();
